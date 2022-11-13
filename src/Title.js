@@ -7,12 +7,17 @@ function Title() {
   return (
     
     <div class="topnav">
-     <img  class="logo_peaks" src={Logo_the_peaks} /> 
-    <div class="search-container">
-      <form action="/action_page.php">
-      <input type="text" name="name" />
-        <button type="submit"><i class="fa fa-search"></i></button>
-      </form>
+     <div className="grid-container">
+     <div className="item3"> 
+      <img  class="logo_peaks" src={Logo_the_peaks} /> 
+      <div class="search-container">
+        <form action="/action_page.php">
+        <input type="text" name="name" />
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div></div>  
+
+      
     </div>
   </div>
   )
