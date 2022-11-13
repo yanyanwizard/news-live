@@ -8,23 +8,33 @@ import banner from './banner.png';
 import banner2 from './banner2.png';
 import banner3 from './banner3.png';
 import Title from './Title';
+import Bookmark from './Bookmark';
 import LeftFeature from './LeftFeature';
 import axios from 'axios';
 
 import './App.css';
 
 
-const App = () => {
-
- 
+const App = () => { 
 
   return (
+    
     <div className="App">
 
-    <div className="grid-container">
-      <div className="item1"> <Title /></div> 
+    <div >
+          <div className="item1"> 
+         
+          <Title />
+           
+          </div>  
+    </div>
+    <div className="grid-container"> 
+      <div className="Bookmark">
+             <Bookmark />
+      </div>  
       <div className="item3">  <Main /></div>  
-      <div className="item4"> </div>
+      
+       
       <div className="block1">
        
       </div> 

@@ -21,22 +21,27 @@ const Main = ()  => {
          console.log(newStories[0])
            setStories(newStories);
          });
-        }, []);
-      
+        }, []); 
       
      return (  
             <div className="App"> 
               <div>
                 {stories.map((story, i) => (
- 
-                  <a href={story.webUrl}>
-                  <div>
-                    <img className="feature_post_section" src={story.fields.thumbnail} /> 
-                      <strong>{story.webTitle}</strong>  
+                  <div className="feature_post_section_url">
+                    <a href={story.webUrl} >
+                    <div>
+                      <img className="feature_post_section_image" src={story.fields.thumbnail} /> 
+                       
                       <br/>
-                      <div> { parse(story.fields.trailText) }</div>  
-                  </div>
-                </a>
+                        <div  className="Feature_webText">
+                          <strong className="Feature_webTitle">{story.webTitle}</strong>  
+                          <br/>
+                          <div> { parse(story.fields.trailText) }</div>  
+                        </div>
+                       
+                    </div>
+                  </a>
+                </div>
                 ))}
                 </div>
               </div>
