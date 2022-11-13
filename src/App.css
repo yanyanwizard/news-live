@@ -1,0 +1,133 @@
+body {
+  display: grid;
+  grid-template-rows: auto; 
+  box-sizing: border-box; 
+  margin-left: auto;
+  margin-right: auto; 
+  opacity: 1.5;
+  justify-content: space-around;
+}
+
+    
+
+ 
+* {box-sizing: border-box;}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #09357b;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+  
+.topnav .search-container {
+  float: right;
+}
+
+.topnav input[type=text] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+}
+
+.topnav .search-container button {
+  float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+ 
+.logo_peaks{
+  width: 200px;
+}
+.grid-container { 
+  display: grid;
+  grid-template-areas:
+    'header header header header header header'
+    'left left left right right right'
+    'block1 block1 block1 block1 block1 block1'
+    'footer footer footer footer footer footer';
+  gap: 10px;
+   
+}
+.box_main_3_post{
+  word-wrap: normal;
+}
+@media screen and (min-width: 1201px) {
+  .grid-container {
+    width:1140px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .grid-container {
+    width:1140px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .grid-container {
+    width:960px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .grid-container {
+    width:100%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .logo_peaks{
+    width: 100%;
+  }
+  .topnav .search-container {
+    float: none;
+  }
+  .topnav a, .topnav input[type=text], .topnav .search-container button {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  .topnav input[type=text] {
+    border: 1px solid #ccc;  
+  }
+  .grid-container {
+    width:100%;
+  }
+} 
+
+
+
+/* .container-lg	100%	100%	100%	960px	1140px	1320px */
+
+.item1 { grid-area: header; } 
+.item3 { grid-area: left; }
+.item4 { grid-area: right; }
+.block1 { grid-area: block1; }
+.item5 { grid-area: footer; }
+
+
+
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center; 
+  font-size: 30px;
+}
