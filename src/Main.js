@@ -35,12 +35,8 @@ const Main = ()  => {
                     <img  src={story.fields.thumbnail} /> 
                       <strong>{story.webTitle}</strong>  
                       <br/>
-                      <strong>{story.fields.trailText}</strong>   
-                      <br />
-                      <br />
-                      <br />
-                      <br />
-                      <br />
+                      <strong>dangerouslySetInnerHTML={ {__html: story.fields.trailText} } </strong>   
+                      
                   </div>
                 </a>
                 ))}
