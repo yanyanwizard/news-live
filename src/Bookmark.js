@@ -1,6 +1,6 @@
 import React from 'react'
 import Logo_the_peaks from './Logo_White.png';
-
+import BookmarkForm from './BookmarkForm';
 function Bookmark() {
 
   
@@ -14,7 +14,7 @@ function Bookmark() {
        
           <div className="bookmark_section_right">
             <div>
-                Bookmark 
+              <BookmarkForm />
             </div> 
              <div class="custom-select" >
                 <select>
