@@ -1,4 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext, useReducer } from 'react'; 
+import ReactDOM from "react-dom"; 
+import Store from "./context";
+import reducer from "./reducer"; 
+import { usePersistedContext, usePersistedReducer } from "./usePersist";
+
+import TodoList from "./components/TodoList";
+import TodoForm from "./components/TodoForm";
+import Bookmark from "react-bookmark";
+
 import Main from './Main';
 import Guardian from './guardian.png';
 import news from './news.jpg';
@@ -8,19 +17,27 @@ import banner from './banner.png';
 import banner2 from './banner2.png';
 import banner3 from './banner3.png';
 import Title from './Title';
-import Bookmark from './Bookmark';
+// import Bookmark from './Bookmark';
 import LeftFeature from './LeftFeature';
-import axios from 'axios';
-
+import axios from 'axios'; 
 import './App.css';
+import BookmarkForm from './BookmarkForm';
 
 
 const App = () => { 
 
+  const globalStore = usePersistedContext(useContext(Store), "state");
+
+  // `todos` will be a state manager to manage state.
+  const [state, dispatch] = usePersistedReducer(
+    useReducer(reducer, globalStore),
+    "state" // The localStorage key
+  );
+
   return (
     
     <div className="App">
-
+ 
     <div >
           <div className="item1"> 
          
@@ -30,7 +47,11 @@ const App = () => {
     </div>
     <div className="grid-container"> 
       <div className="Bookmark">
-             <Bookmark />
+       
+          <BookmarkForm />
+        
+        
+         
       </div>  
       <div className="item3">  <Main /></div>  
       

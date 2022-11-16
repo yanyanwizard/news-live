@@ -45,7 +45,13 @@ body {
   border: none;
   cursor: pointer;
 }
- 
+.bookmark_get_url{
+  display: none;
+  
+}
+.btn-primary{
+  width:100%;
+}
 .logo_peaks{
   width: 200px;
 }

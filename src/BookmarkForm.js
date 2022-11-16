@@ -1,58 +1,36 @@
-
-import React from 'react';  
+ 
+import React, { useState, useEffect, useContext, useReducer } from 'react'; 
+import ReactDOM from "react-dom"; 
+import Store from "./context";
+import reducer from "./reducer"; 
+import { usePersistedContext, usePersistedReducer } from "./usePersist";
+import TodoList from "./components/TodoList";
+import TodoForm from "./components/TodoForm";
+import Bookmark from "react-bookmark";   
 import PropTypes from 'prop-types';
 const href_bookmark_url = window.location.href;
 
-class BookmarkForm extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            websiteAddress: '',
-            errorMessage: false
-        };
-    }
-    
-    handleSubmit = event => {
-        event.preventDefault();
-        let userInput = href_bookmark_url;
-        console.log(this.props)
-        if (userInput) {
-            
-            // this.props.addWebsite(userInput);
-            this.setState({
-                websiteAddress: '',
-                errorMessage: false
-            });
-        } else {
-            this.setState({ errorMessage: true });
-        }
-    };
-    updateInputState = event => {
-        this.setState({ websiteAddress: event.target.value });
-    };
-    render() {
-        return (
-            <div className="bookmark-form-container">
-                <form onSubmit={this.handleSubmit} className="bookmark-form">
-                    <input
-                        type="hidden"
-                        value={href_bookmark_url}
-                        onChange={this.updateInputState}
-                        placeholder="Add website address"
-                        autoFocus
-                        required
-                    />
-                    <input type="submit" value="Submit" />
-                </form>
-                {this.state.errorMessage && (
-                    <div id="error-message">Not a valid website url</div>
-                )}
-            </div>
-        );
-    }
-}
-// BookmarkForm.propTypes = {
-//     addWebsite: PropTypes.func
-// };
-BookmarkForm.propTypes = {   addWebsite: React.PropTypes.func };
-export default BookmarkForm;
+  
+export default function BookmarkForm() {
+    const globalStore = usePersistedContext(useContext(Store), "state");
+
+  // `todos` will be a state manager to manage state.
+    const [state, dispatch] = usePersistedReducer(
+        useReducer(reducer, globalStore),
+        "state" // The localStorage key
+    );
+
+    return (
+        <div className="bookmark-form-container">
+            <Store.Provider value={{ state, dispatch }}>
+                <TodoForm />
+                {/* <TodoList /> */}
+                {/* <Bookmark
+                    className="coolClass"
+                    href="/cool/path"
+                    title="My Cool Website"
+                /> */}
+            </Store.Provider>
+        </div>
+    );
+};

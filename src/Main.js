@@ -28,7 +28,7 @@ const Main = ()  => {
               <div>
                 {stories.map((story, i) => (
                   <div className="feature_post_section_url">
-                    <a href={story.webUrl} >
+                    <a key="{story.id}" href={story.webUrl} >
                     <div>
                       <img className="feature_post_section_image" src={story.fields.thumbnail} /> 
                        
