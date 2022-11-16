@@ -1,6 +1,15 @@
 import React, { useState, useEffect } from 'react';
 // import {Route, Link, Routes, useParams} from 'react-router-dom'; 
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+  Redirect
+} from "react-router-dom"; 
 import axios from 'axios';
+import About from './About';  
+import TodoForm from './components/TodoForm'; 
 import parse from 'html-react-parser';
 import news10 from './news10.jpg'; 
 import './App.css';
@@ -27,24 +36,37 @@ const Main = ()  => {
      return (  
             <div className="App"> 
               <div>
+                 
               {/* <Routes> 
               <Route path="/users/:userId" element={<Users />} /> 
               </Routes> */}
                 {stories.map((story, i) => (
+
+                  
                   <div className="feature_post_section_url">
-                    <a key="{story.id}" href={story.webUrl} >
-                    <div>
-                      <img className="feature_post_section_image" src={story.fields.thumbnail} /> 
-                       
-                      <br/>
-                        <div  className="Feature_webText">
-                          <strong className="Feature_webTitle">{story.webTitle}</strong>  
-                          <br/>
-                          <div> { parse(story.fields.trailText) }</div>  
-                        </div>
-                       
-                    </div>
-                  </a>
+
+                      <Router> 
+                              <Link to="/About" key="{story.id}" > 
+                          
+                               
+                              <div>
+                                <img className="feature_post_section_image" src={story.fields.thumbnail} /> 
+                                
+                                <br/>
+                                  <div  className="Feature_webText">
+                                    <strong className="Feature_webTitle">{story.webTitle}</strong>  
+                                    <br/>
+                                    <div> { parse(story.fields.trailText) }</div>  
+                                  </div>
+                                
+                              </div>
+                              </Link> 
+                    <Routes> 
+                          <Route path="/About" element={ <TodoForm/> }></Route>
+                          
+                          </Routes>
+                         
+                      </Router>
                 </div>
                 ))}
                 </div>

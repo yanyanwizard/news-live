@@ -1,28 +1,31 @@
-import React, { useState, useEffect, useContext, useReducer } from 'react';   
+import React, { useState, useEffect, useContext, useReducer } from 'react'; 
+import ReactDOM from "react-dom/client"; 
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+  Redirect
+} from "react-router-dom"; 
+//import {  Link, Navigate,BrowserRouter,Outlet, Routes, Route } from "react-router-dom"; 
+ 
 import Store from "./context";
 import reducer from "./reducer"; 
-import { usePersistedContext, usePersistedReducer } from "./usePersist"; 
-import TodoList from "./components/TodoList";
-import TodoForm from "./components/TodoForm"; 
+import { usePersistedContext, usePersistedReducer } from "./usePersist";  
 
-import Main from './Main';
-import Guardian from './guardian.png';
-import news from './news.jpg';
-import news10 from './news10.jpg';
-import london from './london.png';
-import banner from './banner.png';
-import banner2 from './banner2.png';
-import banner3 from './banner3.png';
-import Title from './Title';
-// import Bookmark from './Bookmark';
+
+import TodoForm from './components/TodoForm'; 
+import Main from './Main'; 
+import Title from './Title'; 
 import LeftFeature from './LeftFeature';
 import axios from 'axios'; 
 import './App.css';
 import BookmarkForm from './BookmarkForm';
-
-
+ 
+ 
+ 
 const App = () => { 
-
+  
   const globalStore = usePersistedContext(useContext(Store), "state");
 
   // `todos` will be a state manager to manage state.
@@ -44,13 +47,19 @@ const App = () => {
     </div>
     <div className="grid-container"> 
       <div className="Bookmark">
+          
        
-          <BookmarkForm />
-        
-        
+    
+          
+       <BookmarkForm />
+         
+         
+          
          
       </div>  
-      <div className="item3">  <Main /></div>  
+      <div className="item3">  
+      {  <Main /> }
+      </div>  
       
        
       <div className="block1">
@@ -68,6 +77,7 @@ const App = () => {
     </div>
   )
 }
-
+ 
+ 
 
 export default App;
