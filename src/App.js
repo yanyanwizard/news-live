@@ -1,12 +1,9 @@
-import React, { useState, useEffect, useContext, useReducer } from 'react'; 
-import ReactDOM from "react-dom"; 
+import React, { useState, useEffect, useContext, useReducer } from 'react';   
 import Store from "./context";
 import reducer from "./reducer"; 
-import { usePersistedContext, usePersistedReducer } from "./usePersist";
-
+import { usePersistedContext, usePersistedReducer } from "./usePersist"; 
 import TodoList from "./components/TodoList";
-import TodoForm from "./components/TodoForm";
-import Bookmark from "react-bookmark";
+import TodoForm from "./components/TodoForm"; 
 
 import Main from './Main';
 import Guardian from './guardian.png';
@@ -71,5 +68,6 @@ const App = () => {
     </div>
   )
 }
+
 
 export default App;

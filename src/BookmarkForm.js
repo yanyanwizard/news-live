@@ -5,8 +5,7 @@ import Store from "./context";
 import reducer from "./reducer"; 
 import { usePersistedContext, usePersistedReducer } from "./usePersist";
 import TodoList from "./components/TodoList";
-import TodoForm from "./components/TodoForm";
-import Bookmark from "react-bookmark";   
+import TodoForm from "./components/TodoForm"; 
 import PropTypes from 'prop-types';
 const href_bookmark_url = window.location.href;
 

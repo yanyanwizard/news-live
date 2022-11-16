@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+// import {Route, Link, Routes, useParams} from 'react-router-dom'; 
 import axios from 'axios';
 import parse from 'html-react-parser';
 import news10 from './news10.jpg'; 
@@ -12,8 +13,8 @@ const Main = ()  => {
   const parse = require('html-react-parser');
   useEffect(() => {
   //  const key = process.env.REACT_APP_API_KEY;
-   const key = "0e83104f-24c5-4514-890c-4e9a155ebfc1";
-    axios.get(`https://content.guardianapis.com/search?show-fields=all&show-related=true&page-size=5&api-key=${key}`)
+   const keys = "0e83104f-24c5-4514-890c-4e9a155ebfc1";
+    axios.get(`https://content.guardianapis.com/search?show-fields=all&show-related=true&page-size=5&api-key=${keys}`)
       .then(result => {
         console.log(result)
         const newStories = result.data.response.results
@@ -26,6 +27,9 @@ const Main = ()  => {
      return (  
             <div className="App"> 
               <div>
+              {/* <Routes> 
+              <Route path="/users/:userId" element={<Users />} /> 
+              </Routes> */}
                 {stories.map((story, i) => (
                   <div className="feature_post_section_url">
                     <a key="{story.id}" href={story.webUrl} >
@@ -47,6 +51,6 @@ const Main = ()  => {
               </div>
           );
   }
-  
+
         
 export default Main;
